@@ -1,0 +1,84 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/movies
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/actors
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/movies/19
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/actors/20
+Accept: application/json
+
+###
+POST http://127.0.0.1:8000/movies
+Content-Type: application/json
+
+{
+    "title":"Titanic",
+    "director": "James Cameron",
+    "year":2002,
+    "description": "milosna bajeczka"
+}
+
+###
+# Add actor successfully
+POST http://127.0.0.1:8000/actors
+Content-Type: application/json
+
+{
+    "name":"Ryan",
+    "surname": "Gosling"
+}
+###
+# Edit movie successfully
+PUT http://127.0.0.1:8000/movies/11
+Content-Type: application/json
+
+{
+    "title":"LaLaLand",
+    "director": "Damien Chazelle",
+    "year":2002,
+    "description": ""
+}
+
+###
+
+DELETE http://127.0.0.1:8000/movies/19
+Accept: application/json
+
+###
+# Delete actor successfully
+DELETE http://127.0.0.1:8000/actors/200
+Accept: application/json
+
+###
+PUT http://127.0.0.1:8000/actors/8
+Content-Type: application/json
+
+{
+    "name":"Tom"
+}
+
+###
+# Get actors for particular movie
+GET http://127.0.0.1:8000/movies/11/actors
+Accept: application/json
+
+###
+# Get actors for particular movie
+GET http://127.0.0.1:8000/actors/20/movies
+Accept: application/json
+
+###
+# Assign actors to movie
+POST http://127.0.0.1:8000/movies/11/actors/20
+Accept: application/json
