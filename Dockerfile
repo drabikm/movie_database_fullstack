@@ -13,4 +13,5 @@ COPY api/requirements.txt /var/app/api/requirements.txt
 WORKDIR /var/app/api
 RUN pip install --no-cache-dir --upgrade -r /var/app/api/requirements.txt
 COPY api /var/app/api
-CMD ["uvicorn", "main:app", "--port", "80", "--host", "0.0.0.0"]
+EXPOSE 8989
+CMD ["uvicorn", "main:app", "--port", "8989", "--host", "0.0.0.0"]
