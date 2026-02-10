@@ -3,9 +3,9 @@ from typing import Any
 from fastapi import HTTPException
 from peewee import *
 
-from api import validations
+import validations
 
-db = SqliteDatabase('api/movies-extended.db')
+db = SqliteDatabase('./movies-extended.db')
 
 class BaseModel(Model):
     class Meta:

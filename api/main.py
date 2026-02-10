@@ -3,7 +3,7 @@ from typing import Any
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-import api.database_structure as db
+import database_structure as db
 
 app = FastAPI()
 
