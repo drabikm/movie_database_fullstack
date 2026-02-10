@@ -15,7 +15,7 @@ Accept: application/json
 
 ###
 
-GET http://127.0.0.1:8000/actors/20
+GET http://127.0.0.1:8000/actors/21
 Accept: application/json
 
 ###
@@ -70,7 +70,7 @@ Content-Type: application/json
 
 ###
 # Get actors for particular movie
-GET http://127.0.0.1:8000/movies/11/actors
+GET http://127.0.0.1:8000/movies/5/actors
 Accept: application/json
 
 ###
@@ -80,5 +80,5 @@ Accept: application/json
 
 ###
 # Assign actors to movie
-POST http://127.0.0.1:8000/movies/11/actors/20
+POST http://127.0.0.1:8000/movies/1/actors/1
 Accept: application/json

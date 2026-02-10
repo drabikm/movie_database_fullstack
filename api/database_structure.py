@@ -51,11 +51,10 @@ def listMovies():
 
 def listActors():
     actors = []
-    ids = []
     for actor in Actor.select():
-        actors.append('{0}, {1}'.format(actor.name, actor.surname))
-        ids.append(actor.id)
-    return ids
+        actor = {'id': actor.id, 'name': actor.name, 'surname': actor.surname}
+        actors.append(actor)
+    return actors
 
 def getMovie(movie_id:int):
     movie = verify_movie_exist(movie_id)
@@ -95,17 +94,19 @@ def updateActor(actor_info: dict[str, Any], actor_id:int):
 
 def deleteMovie(movie_id:int):
     movie = verify_movie_exist(movie_id)
+    ActorMovie.delete().where(ActorMovie.movie.id == movie_id)
     movie.delete_instance()
 
 def deleteActor(actor_id:int):
     actor = verify_actor_exist(actor_id)
+    ActorMovie.delete().where(ActorMovie.actor.id == actor_id)
     actor.delete_instance()
 
 def getActorsForMovie(movie_id:int):
     movie = verify_movie_exist(movie_id)
     actors = []
     for actor in movie.actors:
-        actors.append('{0} {1}'.format(actor.name, actor.surname))
+        actors.append({'id': actor.id, 'name': actor.name, 'surname': actor.surname})
     return actors
 
 def getMoviesForActor(actor_ids:int):
