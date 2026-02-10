@@ -47,7 +47,7 @@ def get_actor_by_id(actor_id:int):
 @app.post('/actors')
 def add_actor(actor_info: dict[str, Any]):
     ids = db.addActor(actor_info)
-    return f'Actor added successfully with id {ids}'
+    return {"message": f"Actor with id = {ids} added successfully", "id": {ids}}
 
 @app.put("/actors/{actor_id}")
 def update_actor(params: dict[str, Any], actor_id:int):
