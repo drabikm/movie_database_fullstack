@@ -2,7 +2,7 @@ FROM node:18 AS frontend
 COPY front/package.json /var/app/front/package.json
 COPY front/package-lock.json /var/app/front/package-lock.json
 WORKDIR /var/app/front
-RUN npm ci
+RUN npm install
 COPY front/src /var/app/front/src
 COPY front/public /var/app/front/public
 RUN npm run build
