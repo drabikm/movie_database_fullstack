@@ -7,11 +7,11 @@ import database_structure as db
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="../ui/build/static", check_dir=False), name="static")
+app.mount("/static", StaticFiles(directory="../front/build/static", check_dir=False), name="static")
 
 @app.get("/")
 def serve_react_app():
-   return FileResponse("../ui/build/index.html")
+   return FileResponse("../front/build/index.html")
 
 @app.get('/movies')
 def get_movies():
